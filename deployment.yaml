@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appsdeployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      apps: deployment
+  template:
+    metadata:
+      labels:
+        apps: deployment
+    spec:
+      containers:
+        - image: apps2406/joke:blue
+          name: appscont
+          ports:
+            - containerPort: 80
